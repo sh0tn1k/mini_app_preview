@@ -26,7 +26,8 @@
 
         html, body {
             height: 100%;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         body {
@@ -36,6 +37,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
+            padding: 1rem 0;
         }
 
         /* === ANIMATED BACKGROUND === */
@@ -584,6 +587,285 @@
             font-size: 1rem;
         }
 
+        /* === MOCKUP SECTION === */
+        .mockup-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .mockup-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            position: relative;
+            width: 280px;
+            height: 570px;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 193, 7, 0.1),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            animation: phoneFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes phoneFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(-2deg);
+            }
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 28px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+        }
+
+        /* Screen content with your logo */
+        .phone-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--beak-yellow), var(--suit-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(255, 193, 7, 0.3);
+            overflow: hidden;
+        }
+
+        .phone-logo img {
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+        }
+
+        .phone-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-subtitle {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        .phone-reflection {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            right: 60%;
+            bottom: 60%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Promotional Text */
+        .promo-content {
+            flex: 1;
+            max-width: 450px;
+            color: #fff;
+            position: relative;
+        }
+
+        .promo-corner-image {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            z-index: 1;
+        }
+
+        .promo-corner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .promo-corner-image.top-right {
+            top: -50px;
+            right: -30px;
+            animation: floatRotate1 6s ease-in-out infinite;
+        }
+
+        .promo-corner-image.bottom-right {
+            bottom: -50px;
+            right: -30px;
+            animation: floatRotate2 7s ease-in-out infinite;
+            animation-delay: -3.5s;
+        }
+
+        @keyframes floatRotate1 {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        @keyframes floatRotate2 {
+            0%, 100% {
+                transform: translateY(0) rotate(5deg);
+            }
+            50% {
+                transform: translateY(15px) rotate(-5deg);
+            }
+        }
+
+        .promo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--beak-yellow);
+        }
+
+        .promo-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--beak-yellow);
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        .promo-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--beak-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .promo-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 2rem;
+        }
+
+        .promo-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .promo-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .promo-feature-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--beak-yellow), var(--suit-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+        }
+
+        .promo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: linear-gradient(135deg, var(--beak-yellow), var(--suit-blue));
+            border: none;
+            border-radius: 16px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(255, 193, 7, 0.3);
+            text-decoration: none;
+        }
+
+        .promo-cta:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(255, 193, 7, 0.45);
+        }
+
+        .promo-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+
         /* === IMAGES GALLERY === */
         .images-gallery {
             position: fixed;
@@ -736,6 +1018,251 @@
                 transform: translateY(calc(-50%));
             }
         }
+
+        /* === RESPONSIVE MOCKUP === */
+        @media (max-width: 768px) {
+            .mockup-container {
+                padding: 1rem;
+                gap: 2rem;
+            }
+
+            .mockup-section {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .phone-mockup {
+                width: 220px;
+                height: 450px;
+            }
+
+            .promo-content {
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .promo-title {
+                font-size: 1.8rem;
+            }
+
+            .promo-description {
+                font-size: 1rem;
+            }
+
+            .promo-features {
+                align-items: center;
+            }
+
+            .promo-feature {
+                font-size: 0.9rem;
+            }
+
+            .promo-cta {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mockup-container {
+                padding: 0.5rem;
+                gap: 0.8rem;
+            }
+
+            .mockup-section {
+                gap: 0.5rem;
+            }
+
+            .phone-mockup {
+                width: 200px;
+                height: 410px;
+                padding: 10px;
+            }
+
+            .phone-frame {
+                border-radius: 28px;
+            }
+
+            .phone-notch {
+                width: 120px;
+                height: 24px;
+            }
+
+            .phone-screen {
+                padding: 2.5rem 1rem;
+            }
+
+            .phone-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                border-radius: 16px;
+                margin-bottom: 1.5rem;
+            }
+
+            .phone-title {
+                font-size: 1.1rem;
+            }
+
+            .phone-subtitle {
+                font-size: 0.75rem;
+            }
+
+            .promo-content {
+                padding: 0 0.5rem;
+            }
+
+            .promo-badge {
+                font-size: 0.7rem;
+                padding: 6px 12px;
+                margin-bottom: 1rem;
+            }
+
+            .promo-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .promo-description {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+
+            .promo-features {
+                gap: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .promo-feature {
+                font-size: 0.85rem;
+            }
+
+            .promo-feature-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 0.65rem;
+            }
+
+            .promo-cta {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+                gap: 8px;
+            }
+
+            .promo-cta svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            /* Adjust floating gallery items for mobile */
+            .gallery-item {
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            .gallery-item:nth-child(1) {
+                top: 15% !important;
+                left: -30px !important;
+                width: 90px !important;
+                height: 90px !important;
+            }
+
+            .gallery-item:nth-child(2) {
+                top: 5% !important;
+                right: -20px !important;
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .gallery-item:nth-child(3) {
+                top: 85% !important;
+                right: -30px !important;
+                width: 95px !important;
+                height: 95px !important;
+            }
+
+            /* Adjust corner images for mobile */
+            .promo-corner-image {
+                width: 85px !important;
+                height: 85px !important;
+                border-radius: 14px;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+                opacity: 0.9;
+            }
+
+            .promo-corner-image.top-right {
+                top: 10px !important;
+                right: 5px !important;
+                animation: floatRotateMobile1 6s ease-in-out infinite;
+            }
+
+            .promo-corner-image.bottom-right {
+                top: 10px !important;
+                left: 5px !important;
+                right: auto !important;
+                bottom: auto !important;
+                animation: floatRotateMobile2 7s ease-in-out infinite;
+                animation-delay: -3.5s;
+            }
+
+            @keyframes floatRotateMobile1 {
+                0%, 100% {
+                    transform: rotate(-5deg);
+                }
+                50% {
+                    transform: rotate(5deg);
+                }
+            }
+
+            @keyframes floatRotateMobile2 {
+                0%, 100% {
+                    transform: rotate(5deg);
+                }
+                50% {
+                    transform: rotate(-5deg);
+                }
+            }
+
+            .promo-content {
+                padding: 0 0.5rem;
+                padding-top: 50px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .mockup-container {
+                padding: 0.5rem 0.25rem;
+            }
+
+            .phone-mockup {
+                width: 180px;
+                height: 370px;
+                padding: 8px;
+            }
+
+            .phone-logo {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .phone-title {
+                font-size: 1rem;
+            }
+
+            .promo-title {
+                font-size: 1.3rem;
+            }
+
+            .promo-description {
+                font-size: 0.85rem;
+            }
+
+            .promo-feature {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -763,59 +1290,67 @@
     <div class="glow-1"></div>
     <div class="glow-2"></div>
 
-    <!-- Images Gallery - Floating in background -->
-    <div class="images-gallery">
-        <div class="gallery-item">
-            <img src="./VysshayaShkolaBiznesa_AgAD8nYAAmbhWEs.webp" alt="Raven 1">
-        </div>
-        <div class="gallery-item">
-            <img src="./VysshayaShkolaBiznesa_AgADa3sAAoe8eEk.webp" alt="Raven 2">
-        </div>
-        <div class="gallery-item">
-            <img src="./VysshayaShkolaBiznesa_AgADnnMAAgTOkUs.webp" alt="Raven 3">
-        </div>
-    </div>
+    <!-- Mockup Section -->
+    <div class="mockup-container">
+        <div class="mockup-section">
+            <!-- Phone Mockup -->
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="phone-reflection"></div>
+                        <div class="phone-logo">
+                            <img src="VysshayaShkolaBiznesa_AgADa3sAAoe8eEk.webp" alt="Eye Of Raven">
+                        </div>
+                        <div class="phone-title">Eye Of Raven</div>
+                        <div class="phone-subtitle">Your smart assistant in Telegram</div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="logo">🔮</div>
-        
-        <div class="status">
-            <span class="status-dot"></span>
-            In Development
-        </div>
-
-        <h1>
-            <span class="gradient-text">Eye Of Raven</span><br>
-            Mini App
-        </h1>
-
-        <p class="description">
-            Powerful Intelligence at Your Fingertips.<br>
-            <span class="highlight">All features available through the bot</span>
-        </p>
-
-        <a href="https://t.me/dialog_guard_bot" class="btn" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/>
-            </svg>
-            Open Bot
-        </a>
-
-        <div class="footer">
-            <div class="features">
-          <div class="feature">
-              <span class="feature-icon">⚡</span>
-              Fast
-          </div>
-          <div class="feature">
-              <span class="feature-icon">🔒</span>
-              Secure
-          </div>
-          <div class="feature">
-              <span class="feature-icon">✨</span>
-              Convenient
-          </div>
+            <!-- Promotional Content -->
+            <div class="promo-content">
+                <div class="promo-corner-image top-right">
+                    <img src="VysshayaShkolaBiznesa_AgAD8nYAAmbhWEs.webp" alt="Promo 1">
+                </div>
+                <div class="promo-corner-image bottom-right">
+                    <img src="VysshayaShkolaBiznesa_AgADnnMAAgTOkUs.webp" alt="Promo 2">
+                </div>
+                
+                <div class="promo-badge">
+                    <div class="promo-badge-dot"></div>
+                    <span>Mini App Soon</span>
+                </div>
+                
+                <h1 class="promo-title">
+                    Eye Of Raven<br>Telegram Mini App
+                </h1>
+                
+                <p class="promo-description">
+                    Powerful Intelligence at Your Fingertips. All features available through the bot
+                </p>
+                
+                <div class="promo-features">
+                    <div class="promo-feature">
+                      <div class="promo-feature-icon">✓</div>
+                      <span>Track deleted messages</span>
+                    </div>
+                    <div class="promo-feature">
+                      <div class="promo-feature-icon">✓</div>
+                      <span>Track message edits</span>
+                    </div>
+                    <div class="promo-feature">
+                      <div class="promo-feature-icon">✓</div>
+                      <span>Save disappearing media</span>
+                    </div>
+                </div>
+                
+                <a href="#" class="promo-cta">
+                    <span>Open bot</span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
